@@ -1,0 +1,7 @@
+= form_for @student, url: @url, html: {method: @method} do |f|
+  = text_input_with_label f, :name, "Name"
+  = text_input_with_label f, :niner_net, "NinerNet ID"
+  = text_input_with_label f, :codecademy, "Codecademy Username"
+  .row
+    %div{class: "col-md-12"}
+      = f.submit @button_text, class: "btn btn-xs btn-primary"

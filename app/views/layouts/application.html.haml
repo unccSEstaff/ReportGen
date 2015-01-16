@@ -1,0 +1,38 @@
+!!! 5
+%html
+  %head
+    %title Codecademy Progress Scraper
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+    = csrf_meta_tags
+  
+  %body{role: "document"}
+    %div{class: "navbar navbar-inverse navbar-fixed-top", role: "navigation"}
+      %div{class: "container"}
+        %div{class: "navbar-header"}
+          %button{type: "button", class: "navbar-toggle collapsed", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+            %span{class: "sr-only"} Toggle Navigation
+            %span{class: "icon-bar"}
+            %span{class: "icon-bar"}
+            %span{class: "icon-bar"}
+          %a{href: new_student_path, class: "navbar-toggle btn-xs collapsed"}
+            %span{class: "glyphicon glyphicon-plus"}
+            Add Student
+          %a{href: root_path, class: "navbar-brand"} ITCS 3155 Codecademy Progress Scraper
+        %div{class: "navbar-collapse collapse"}
+          %ul{class: "nav navbar-nav"}
+            %li
+              %a{href: root_path} Home
+            %li
+              %a{href: caps_path(format: :xml), id: "progress-link"} Get Progress
+          %div{class: "navbar-right navbar-form"}
+            %a{href: new_student_path, class: "btn btn-default"}
+              %span{class: "glyphicon glyphicon-plus"}
+              Add Student
+    %div{class: "container", role: "main"}
+      - if flash[:message]
+        %div{class: "alert alert-success", role: "alert"}= flash[:message]
+      = yield

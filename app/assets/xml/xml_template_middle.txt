@@ -1,0 +1,42 @@
+ x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:AutoFitWidth="0" ss:Width="82.5" ss:Span="1"/>
+   <Column ss:Index="18" ss:Width="60"/>
+   <Row ss:AutoFitHeight="0" ss:Height="20.25">
+    <Cell ss:MergeAcross="2" ss:StyleID="s63"><Data ss:Type="String">Student</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 1</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 2</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 3</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 4</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 5</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 6</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 7</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Lesson 8</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 9</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s63"><Data ss:Type="String">Lesson 10</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16.5">
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">NinerNet ID</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">CodeAcademy ID</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Lesson</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Project</Data></Cell>
+   </Row>

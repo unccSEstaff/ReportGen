@@ -1,0 +1,19 @@
+    </Range>
+   <Condition>
+    <Qualifier>Equal</Qualifier>
+    <Value1>FALSE</Value1>
+    <Format Style='color:#9C0006;background:#FFC7CE'/>
+   </Condition>
+   <Condition>
+    <Qualifier>Equal</Qualifier>
+    <Value1>TRUE</Value1>
+    <Format Style='color:#006100;background:#C6EFCE'/>
+   </Condition>
+   <Condition>
+    <Qualifier>Equal</Qualifier>
+    <Value1>404</Value1>
+    <Format Style='color:#CC6600;background:#FFE7B7'/>
+   </Condition>
+  </ConditionalFormatting>
+ </Worksheet>
+</Workbook>
