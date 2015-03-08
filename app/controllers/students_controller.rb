@@ -41,6 +41,6 @@ class StudentsController < ApplicationController
   
   private
     def student_params
-      params.require(:student).permit(:name, :niner_net, :codecademy)
+      params.require(:student).permit(:name, :niner_net, :codecademy, :github_username, :ch4_repo_name)
     end
 end

@@ -35,6 +35,9 @@ gem 'nokogiri'
 # Use HAML for views
 gem 'haml'
 
+# OctoKit for accessing GitHub API
+gem 'octokit'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

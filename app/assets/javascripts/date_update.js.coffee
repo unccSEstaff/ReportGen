@@ -12,5 +12,8 @@ setInterval (->
   hour = padNumber date.getHours()
   minute = padNumber date.getMinutes()
   second = padNumber date.getSeconds()
-  href = "/caps_#{month}-#{day}-#{year}_#{hour}-#{minute}-#{second}.xml"
-  $("#progress-link").attr("href", href)), 1000
+  date_string = "#{month}-#{day}-#{year}_#{hour}-#{minute}-#{second}"
+  caps_href = "/caps_#{date_string}.xml"
+  ch4_href = "/ch4_#{date_string}.csv"
+  $("#progress-link").attr("href", caps_href)
+  $("#progress-form").attr("action", ch4_href)), 1000

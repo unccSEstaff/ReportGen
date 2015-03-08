@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-CodecademyScraper::Application.load_tasks
+ReportGenerator3155::Application.load_tasks

@@ -9,6 +9,8 @@
         %th Name
         %th NinerNet ID
         %th Codecademy Username
+        %th GitHub Username
+        %th Chapter 4 Walkthrough Repository Name
         %th
         %th
     %tbody
@@ -17,6 +19,8 @@
           %td= student.name
           %td= student.niner_net
           %td= student.codecademy
+          %td= student.github_username
+          %td= student.ch4_repo_name
           %td
             = link_to '<span class="glyphicon glyphicon-cog"></span>'.html_safe, edit_student_path(student), class: "btn btn-xs btn-success"
           %td

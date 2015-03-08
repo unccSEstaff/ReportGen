@@ -112,7 +112,9 @@ class CodecademyWebCrawler
 				
 				# Check only Ruby specific achievements
 				if badge_div['class'].match '--ruby-achievement'
-					achievement_urls.push(achievement.css('a')[0]['href'])
+					if achievement.css('a')[0] # Make sure the Achievement contains a link
+						achievement_urls.push(achievement.css('a')[0]['href'])
+					end
 				end
 			end
 		rescue OpenURI::HTTPError

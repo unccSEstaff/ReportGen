@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113154219) do
+ActiveRecord::Schema.define(version: 20150308133751) do
 
   create_table "students", force: true do |t|
     t.string   "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140113154219) do
     t.string   "codecademy"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "github_username"
+    t.string   "ch4_repo_name"
   end
 
 end
