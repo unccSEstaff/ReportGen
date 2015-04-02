@@ -5,7 +5,7 @@
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
     = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => false
     = javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
     = csrf_meta_tags
   
@@ -31,7 +31,7 @@
             %li
               %a{href: ch4_path} Chapter 4 Walkthrough
             %li
-              %a gitimmersion
+              %a{href: gitimmersion_path} gitimmersion
           %div{class: "navbar-right navbar-form"}
             %a{href: new_student_path, class: "btn btn-default"}
               %span{class: "glyphicon glyphicon-plus"}

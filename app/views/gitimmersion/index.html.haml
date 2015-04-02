@@ -1,6 +1,6 @@
 .well Login to your GitHub Developer Account
 
-= form_tag gitimmersion_path(format: :csv), method: "post", id: "progress-form" do
+= form_tag gitimmersion_report_path(format: :csv), method: "post", id: "progress-page" do
 	.row
 		%div{class: "col-md-4"}= label_tag :username, "Username"
 		%div{class: "col-md-8"}= text_field_tag :username, "", class: "form-control"

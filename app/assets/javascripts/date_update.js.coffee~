@@ -18,4 +18,4 @@ setInterval (->
   gitimmersion_href = "/gitimmersion_#{date_string}.csv"
   $("#progress-link").attr("href", caps_href)
   $("#progress-form").attr("action", ch4_href)), 1000
-  
+  #$("#progress-page").attr("action", gitimmersion_href)), 1000
