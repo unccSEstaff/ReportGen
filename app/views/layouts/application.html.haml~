@@ -31,7 +31,7 @@
             %li
               %a{href: ch4_path} Chapter 4 Walkthrough
             %li
-              %a{href: gitimmersion_path} gitimmersion
+              %a gitimmersion
           %div{class: "navbar-right navbar-form"}
             %a{href: new_student_path, class: "btn btn-default"}
               %span{class: "glyphicon glyphicon-plus"}

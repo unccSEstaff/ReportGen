@@ -1,0 +1,10 @@
+.well Login to your GitHub Developer Account
+
+= form_tag gitimmersion_path(format: :csv), method: "post", id: "progress-form" do
+	.row
+		%div{class: "col-md-4"}= label_tag :username, "Username"
+		%div{class: "col-md-8"}= text_field_tag :username, "", class: "form-control"
+	.row
+		%div{class: "col-md-4"}= label_tag :password, "Password"
+		%div{class: "col-md-8"}= password_field_tag :password, "", class: "form-control"
+	= submit_tag "Generate Report", class: "btn btn-primary"

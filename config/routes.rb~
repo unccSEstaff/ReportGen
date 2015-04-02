@@ -4,6 +4,6 @@ ReportGenerator3155::Application.routes.draw do
   get "/ch4", to: "ch4_walkthrough#index", as: "ch4"
   post "/ch4_:time", to: "ch4_walkthrough#process_students", as: "ch4_report", defaults: {time: Time.now.getlocal.strftime("%m-%d-%Y_%H-%M-%S")}
   get "/gitimmersion", to: "gitimmersion#index", as: "gitimmersion"
-  post "gitimmersion_:time", to: "gitimmersion#process_students", as: "gitimmersion_report", defaults: {time: Time.now.getlocal.strftime("%m-%d-%Y_%H-%M-%S")}
+  #post "gitimmersion_report", defaults: {time: Time.now.getlocal.strftime("%m-%d-%Y_%H-%M-%S")}
   resources :students
 end
