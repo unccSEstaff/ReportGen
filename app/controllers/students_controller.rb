@@ -1,6 +1,12 @@
 class StudentsController < ApplicationController
   def index
-    @students = Student.order(:name)
+    if params[:sort_by]
+      @sortUsing = params[:sort_by]
+    else
+      @sortUsing = "name"
+    end
+    
+    @students = Student.order(@sortUsing, :name) 
     @total_students = Student.count
   end
   
@@ -41,6 +47,6 @@ class StudentsController < ApplicationController
   
   private
     def student_params
-      params.require(:student).permit(:name, :niner_net, :codecademy, :github_username, :ch4_repo_name)
+      params.require(:student).permit(:name, :niner_net, :codecademy, :github_username, :ch4_repo_name, :RailsTutorialHeroku)
     end
 end

@@ -9,13 +9,13 @@ class Ch4WalkthroughController < ApplicationController
 		csv_array = []
 	  	csv_array << ['Name', 'NinerNet ID', 'GitHub Username', 'Repository Name',
 	  		'Number of Commits', 'Migration Date',
-	  		'Has Movies Controller?', 'Has Movies Model?', 'Has Index View?', 'Has Show View?', 'Has New View?', 'Has Edit View?']
+	  		'Has Movies Controller?', 'Has Movies Model?', 'Has Index View?', 'Has Show View?', 'Has New View?', 'Has Edit View?, score']
 	  		
   		client = Octokit::Client.new login: params[:username], password: params[:password]
 	  	
 	  	Student.order(:name).all.each do |student|
-	  		if student.github_username != "" && student.ch4_repo_name != ""
-		  		octokit = OctokitWrapper.new(client, student.github_username, student.ch4_repo_name)
+	  		if student.github_username != ""
+		  		octokit = OctokitWrapper.new(client, student.github_username, "ch4_wt")
 		  		begin
 		  			commits = []
 		  			
@@ -31,6 +31,15 @@ class Ch4WalkthroughController < ApplicationController
 					  		migration_filename = octokit.get_filename(migration_regex)
 					  		migration_date = "No Migration File."
 					  		
+					  		score = 10
+					  		if number_of_commits >= 4
+					  			score = score + 30
+					  		elsif number_of_commits == 3
+					  			score = score + 28
+					  		elsif number_of_commits == 2
+					  			score = score + 20
+					  		end
+					  		
 					  		unless migration_filename == ""
 						  		groups = migration_filename.match(migration_regex)
 						  		migration_date = DateTime.new(groups['year'].to_i, groups['month'].to_i, groups['day'].to_i,
@@ -38,24 +47,35 @@ class Ch4WalkthroughController < ApplicationController
 						  	end
 					  		
 					  		has_controller = octokit.get_filename(/movies_controller.rb$/) != ""
+					  			score = score + 10 if has_controller
+					  			
 					  		has_model = octokit.get_filename(/movie.rb$/) != ""
+					  			score = score + 10 if has_model
+					  			
 					  		has_index_view = octokit.get_filename(/index.html.haml$/) != ""
+					  			score = score + 10 if has_index_view
+					  			
 					  		has_show_view = octokit.get_filename(/show.html.haml$/) != ""
+					  			score = score + 10 if has_show_view
+					  			
 					  		has_new_view = octokit.get_filename(/new.html.haml$/) != ""
+					  			score = score + 10 if has_new_view
+					  			
 					  		has_edit_view = octokit.get_filename(/edit.html.haml$/) != ""
+					  			score = score + 10 if has_edit_view
 					  		
 					  		csv_array << [student.name, student.niner_net, student.github_username, student.ch4_repo_name,
 					  			number_of_commits, migration_date,
-					  			has_controller, has_model, has_index_view, has_show_view, has_new_view, has_edit_view]
+					  			has_controller, has_model, has_index_view, has_show_view, has_new_view, has_edit_view, score]
 				  	else
 				  		csv_array << [student.name, student.niner_net, student.github_username, student.ch4_repo_name,
 				  			number_of_commits, "No Migration File.",
-				  			false, false, false, false, false, false]
+				  			false, false, false, false, false, false, 0]
 				  	end
 			  	rescue Octokit::NotFound
-			  		csv_array << [student.name, student.niner_net, student.ch4_repo_name, "404 (#{student.repository_name})",
+			  		csv_array << [student.name, student.niner_net, student.github_username, "404 for #{student.github_username}/ch4_wt",
 			  			0, "No Migration File.",
-		  				false, false, false, false, false, false]
+		  				false, false, false, false, false, false,0]
 			  	end
 		  	end
 	  	end

@@ -21,17 +21,19 @@
           %a{href: new_student_path, class: "navbar-toggle btn-xs collapsed"}
             %span{class: "glyphicon glyphicon-plus"}
             Add Student
-          %a{href: root_path, class: "navbar-brand"} ITCS 3155 Report Generator
+          %a{href: root_path, class: "navbar-brand"} REPORT GENERATOR
         %div{class: "navbar-collapse collapse"}
           %ul{class: "nav navbar-nav"}
             %li
               %a{href: root_path} Home
             %li
-              %a{href: caps_path(format: :xml), id: "progress-link"} Generate Codecademy Report
+              %a{href: caps_path(format: :xml), id: "progress-link"}Codecademy Report
             %li
-              %a{href: ch4_path} Chapter 4 Walkthrough
+              %a{href: ch4_path} Chapter 4 Walkthrough Report
             %li
-              %a{href: gitimmersion_path} gitimmersion
+              %a{href: gitimmersion_path} Git Immersion Report
+            %li
+              %a{href: railstutorial_path} Rails Tutorial Report
           %div{class: "navbar-right navbar-form"}
             %a{href: new_student_path, class: "btn btn-default"}
               %span{class: "glyphicon glyphicon-plus"}

@@ -3,27 +3,33 @@
     Number of Students:
     = @students.length
 - unless @students.empty?
-  %table{class: "table table-striped"}
+  %table{class: "table table-hover"}
     %thead
       %tr
-        %th Name
-        %th NinerNet ID
-        %th Codecademy Username
-        %th GitHub Username
-        %th Chapter 4 Walkthrough Repository Name
         %th
-        %th
+        %th      
+        %th= link_to("Name", students_path(sort_by: "Name")) 
+        %th{:width => "275"}
+        %th= link_to("Codecademy", students_path(sort_by: "codecademy")) 
+        %th= link_to("Hartl Tutorial", students_path(sort_by: "RailsTutorialHeroku"))    
+        %th= link_to("GitHub User", students_path(sort_by: "github_username"))         
+        %th= link_to("NinerNet ID", students_path(sort_by: "niner_net"))
     %tbody
       - @students.each do |student|
         %tr
-          %td= student.name
-          %td= student.niner_net
-          %td= student.codecademy
-          %td= student.github_username
-          %td= student.ch4_repo_name
           %td
             = link_to '<span class="glyphicon glyphicon-cog"></span>'.html_safe, edit_student_path(student), class: "btn btn-xs btn-success"
           %td
             = form_for student, url: student_path(student), html: {method: "delete"} do |f|
               = content_tag :button, type: :submit, class: "btn btn-xs btn-danger", data: {confirm: "Really delete student '#{student.name}'?"} do
-                %span{class: "glyphicon glyphicon-remove"}
+                %span{class: "glyphicon glyphicon-remove"}        
+          %td= link_to(student.name, edit_student_path(student))
+          %td 
+          %td
+            - if student.codecademy != nil && student.codecademy != ""
+              Yes
+          %td 
+            - if student.RailsTutorialHeroku != nil && student.RailsTutorialHeroku != ""
+              Yes
+          %td= student.github_username          
+          %td= student.niner_net

@@ -96,7 +96,7 @@ class CodecademyWebCrawler
 		achievement_urls = Array.new
 		
 		begin
-			page = Nokogiri::HTML(open('http://www.codecademy.com/users/' + username.gsub(' ', '%20') + '/achievements'))
+			page = Nokogiri::HTML(open('https://www.codecademy.com/users/' + username.gsub(' ', '%20') + '/achievements'))
 
 			achievements = page.css('div.achievement-card')
 		

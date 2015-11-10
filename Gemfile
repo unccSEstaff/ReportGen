@@ -29,6 +29,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'mechanize'
+
 # Use Nokogiri for web scraping
 gem 'nokogiri'
 
@@ -49,5 +51,5 @@ gem 'octokit'
 # gem 'capistrano', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
 gem 'better_errors', group: [:development,:test]
