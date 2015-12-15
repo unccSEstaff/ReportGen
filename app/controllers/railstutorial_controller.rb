@@ -47,7 +47,7 @@ class RailstutorialController < ApplicationController
 				if numberOfCommits >= 3
 					score = score + 55
 				elsif numberOfCommits == 2
-					score = score + 53
+					score = score + 54
 				elsif numberOfCommits == 1
 					score = score + 45
 				end

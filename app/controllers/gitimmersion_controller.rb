@@ -8,46 +8,45 @@ class GitimmersionController < ApplicationController
   end
 
   def process_students
-	
-	
 	csv_array = []
     	csv_array<< ['Name', 'NinerNet ID', 'GitHub Username', 'Number of Commits', 'Number of Branches', 'Score']
-	
     client = Octokit::Client.new login: params[:username], password: params[:password]
 
 	Student.order(:name).all.each do |student|
 		score=0
 		
 		if student.github_username != ""
-		then 
-		
-		octokit= OctokitWrapper.new(client, student.github_username, '/gitimmersion')
-		repo=student.github_username+'/gitimmersion'
+			octokit= OctokitWrapper.new(client, student.github_username, '/gitimmersion')
+			repo=student.github_username+'/gitimmersion'
 		end
 		
 		if client.repository?(repo) == true
-		then 
-		score=score+5
+			score=score+5
 		end
 	
-		numberOfCommits=0
-		commits=[]
-		begin
-		commits=client.commits(repo)
-		rescue Octokit::NotFound
-		end
-		numberOfCommits=commits.length unless commits.length==0
-		if numberOfCommits>9
-			then
-			score=score+30
-			elsif numberOfCommits>6
-				then
-				score=score+20
-				elsif numberOfCommits>3
-					then
-					score=score+10
-				end
+
+begin
+	numberOfCommits=0
+	commits=[]
+	commits=client.commits(repo)
+rescue
+     continue = 0
+end
+
+		
+		unless continue == 0
+			numberOfCommits=commits.length unless commits.length==0
 			
+			if numberOfCommits>9
+				score=score+30
+			elsif numberOfCommits>6
+				score=score+20
+			elsif numberOfCommits>3
+				score=score+10
+			end
+		else
+			numberOfCommits = 0
+		end	
 		
 	
 	branchCount=0
@@ -73,9 +72,4 @@ class GitimmersionController < ApplicationController
 			end
 	 	end
 	end
-
 	end 
-
-	
-
-
