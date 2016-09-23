@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
-
+ 
 class CodecademyWebCrawler
 	def initialize(codecademy_username)
 		@lesson_urls = get_ruby_track_urls
@@ -96,10 +96,25 @@ class CodecademyWebCrawler
 		achievement_urls = Array.new
 		
 		begin
-			page = Nokogiri::HTML(open('https://www.codecademy.com/users/' + username.gsub(' ', '%20') + '/achievements'))
+			#page = Nokogiri::HTML(open('https://www.codecademy.com/users/' + username.gsub(' ', '%20') + '/achievements'))
+			#achievements = page.css('div.achievement-card')
 
-			achievements = page.css('div.achievement-card')
-		
+			# Start Page
+			agent = Mechanize.new
+			agent.get('https://www.codecademy.com/users/' + username.gsub(' ', '%20') + '/achievements')
+			
+			# Login
+			form = agent.page.forms[0]
+			form.field_with(:name => "user[login]").value = "unccSEstaff@gmail.com"
+			form.field_with(:name => "user[password]").value = "itcs3155!"
+			form.submit
+			
+			# Convert to nokogiri 
+			html = agent.page.body
+			page = Nokogiri::HTML(html)
+			achievements = page.css('div.achievement-card') 
+			
+		  # compare for badges
 			achievements.each do |achievement|
 				#badge_div = achievement.css('div.badge')[0]
 			
@@ -124,3 +139,4 @@ class CodecademyWebCrawler
 		return achievement_urls
 	end
 end
+

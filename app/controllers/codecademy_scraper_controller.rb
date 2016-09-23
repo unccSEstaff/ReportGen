@@ -10,7 +10,7 @@ class CodecademyScraperController < ApplicationController
 	  	if student.codecademy != ""
 	  		student_crawler = CodecademyWebCrawler.new(student.codecademy)
 				student_achievements = student_crawler.get_achievements
-	
+				
 				row_content = OutputXmlTemplate.format_string(student.name)
 				row_content += OutputXmlTemplate.format_string(student.niner_net)
 				row_content += OutputXmlTemplate.format_string(student.codecademy)

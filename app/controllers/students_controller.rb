@@ -1,5 +1,16 @@
+require 'csv'
 class StudentsController < ApplicationController
   def index
+    if params[:import]
+      CSV.foreach("/home/ubuntu/workspace/ReportGen/app/assets/Book1.csv") do |row|
+        Student.create(:niner_net => row[0], :name => row[1], :codecademy => row[2])
+      end     
+    end
+    
+    if params[:clear]
+      Student.delete_all    
+    end    
+  
     if params[:sort_by]
       @sortUsing = params[:sort_by]
     else

@@ -52,4 +52,5 @@ gem 'octokit'
 
 # Use debugger
 #gem 'debugger', group: [:development, :test]
-gem 'better_errors', group: [:development,:test]
+#gem 'better_errors', group: [:development,:test]
+gem 'byebug'
