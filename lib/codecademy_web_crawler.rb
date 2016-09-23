@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'nokogiri'
 require 'mechanize'
-
+require 'byebug'
  
 class CodecademyWebCrawler
 	def initialize(codecademy_username)
@@ -141,6 +141,7 @@ class CodecademyWebCrawler
 				end
 			end
 
+			byebug
 		return achievement_urls
 	end
 end
