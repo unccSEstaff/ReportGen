@@ -1,10 +1,30 @@
 %div{class: "well"}
   %div
 
-    = link_to("import     ", students_path(import: "yes"))
+    = link_to("import students", students_path(import: "students"))
+
+    |    
     
-    = link_to(" clear", students_path(clear: "yes"))  
-  
+    = link_to("import codecademy", students_path(import: "cc"))
+
+    |  
+    
+    = link_to("import github", students_path(import: "github"))
+
+    | 
+    
+    = link_to("import walkthrough repo", students_path(import: "ch4"))
+
+    | 
+    
+    = link_to("import tutorial url", students_path(import: "rails"))
+
+    |     
+    
+    = link_to(" clear student list", students_path(clear: "yes"))  
+    
+    |
+      
     Number of Students:
     = @students.length
 - unless @students.empty?

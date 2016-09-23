@@ -105,8 +105,8 @@ class CodecademyWebCrawler
 			
 			# Login
 			form = agent.page.forms[0]
-			form.field_with(:name => "user[login]").value = "INPUT CODE CADEMY EMAIL HERE"
-			form.field_with(:name => "user[password]").value = "INPUT CODE CADEMY PASSWORD HERE"
+			form.field_with(:name => "user[login]").value = "unccSEstaff@gmail.com"
+			form.field_with(:name => "user[password]").value = "itcs3155!"
 			form.submit
 			
 			# Convert to nokogiri 
