@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'nokogiri'
-require 'open-uri'
+require 'mechanize'
+
  
 class CodecademyWebCrawler
 	def initialize(codecademy_username)
@@ -93,16 +94,23 @@ class CodecademyWebCrawler
 
 	# Get all of the URLs for the Ruby achievements a user has earned
 	def get_user_achievement_urls(username)
-		achievement_urls = Array.new
+
 		
-		begin
 			#page = Nokogiri::HTML(open('https://www.codecademy.com/users/' + username.gsub(' ', '%20') + '/achievements'))
 			#achievements = page.css('div.achievement-card')
 
 			# Start Page
-			agent = Mechanize.new
-			agent.get('https://www.codecademy.com/users/' + username.gsub(' ', '%20') + '/achievements')
+		  achievement_urls = Array.new
 			
+			
+			begin
+				agent = Mechanize.new
+			  agent.get('https://www.codecademy.com/users/' + username.gsub(' ', '%20') + '/achievements')
+			rescue Mechanize::ResponseCodeError => e 
+				achievement_urls = false
+				return achievement_urls
+			end			
+
 			# Login
 			form = agent.page.forms[0]
 			form.field_with(:name => "user[login]").value = "unccSEstaff@gmail.com"
@@ -132,9 +140,6 @@ class CodecademyWebCrawler
 					end
 				end
 			end
-		rescue OpenURI::HTTPError
-			achievement_urls = false
-		end
 
 		return achievement_urls
 	end

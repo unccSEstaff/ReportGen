@@ -3,11 +3,11 @@ require 'output_xml_template.rb'
 
 class CodecademyScraperController < ApplicationController
 	def process_students
-	    @xml = OutputXmlTemplate.get_template_beginning(Student.count + 2)
+	    @xml = OutputXmlTemplate.get_template_beginning(Student.where("length(codecademy) > 1").count + 2)
 	    @xml += OutputXmlTemplate.get_template_middle
       
-	  Student.order("lower(niner_net)").each do |student|
-	  	if student.codecademy != ""
+	  Student.where("length(codecademy) > 1").order("lower(name)").each do |student|
+	  	if student.codecademy != "" and student.codecademy.length > 1
 	  		student_crawler = CodecademyWebCrawler.new(student.codecademy)
 				student_achievements = student_crawler.get_achievements
 				
@@ -27,7 +27,7 @@ class CodecademyScraperController < ApplicationController
 		end
   	end
   	
-    @xml += OutputXmlTemplate.get_template_end_first(Student.count + 2)
+    @xml += OutputXmlTemplate.get_template_end_first(Student.where("length(codecademy) > 1").count + 2)
     @xml += OutputXmlTemplate.get_template_end_last
   end
 end
