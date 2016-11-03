@@ -27,4 +27,8 @@ class OctokitWrapper
 		
 		return ""
 	end
+	
+	def get_gemfile
+		return @client.contents(@repo, path:"Gemfile")
+	end
 end

@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
   def index
     if params[:import] == "students"
       CSV.foreach("/home/ubuntu/workspace/ReportGen/app/assets/Students.csv", :headers => true) do |row|
-        Student.create(:canvasID => row['canvasID'], :name => row['name'])
+        Student.create(:canvasID => row['canvasID'], :name => row['name'], :section => row['section'], :SISid => row['SISid'], :niner_net => row['SISlogin'])
       end 
     elsif params[:import] == "cc"
       CSV.foreach("/home/ubuntu/workspace/ReportGen/app/assets/Codecademy.csv", :headers => true) do |row|
@@ -35,6 +35,9 @@ class StudentsController < ApplicationController
     
     @students = Student.order(@sortUsing, :name) 
     @total_students = Student.count
+    @githubCount = Student.where("length(github_username) > 1").count
+    @tutorialCount = Student.where("length(RailsTutorialHeroku) > 1").count
+    @CodeCadCount = Student.where("length(codecademy) > 1").count
   end
   
   def create

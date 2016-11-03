@@ -38,9 +38,9 @@
         %th      
         %th= link_to("Name", students_path(sort_by: "Name")) 
         %th{:width => "275"}
-        %th= link_to("Codecademy", students_path(sort_by: "codecademy")) 
-        %th= link_to("Hartl Tutorial", students_path(sort_by: "RailsTutorialHeroku"))    
-        %th= link_to("GitHub User", students_path(sort_by: "github_username"))         
+        %th= link_to("Codecademy #{@CodeCadCount}", students_path(sort_by: "codecademy")) 
+        %th= link_to("Hartl Tutorial #{@tutorialCount}", students_path(sort_by: "RailsTutorialHeroku"))    
+        %th= link_to("GitHub User #{@githubCount}", students_path(sort_by: "github_username"))         
         %th= link_to("NinerNet ID", students_path(sort_by: "niner_net"))
     %tbody
       - @students.each do |student|

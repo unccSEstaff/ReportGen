@@ -141,7 +141,7 @@ class CodecademyWebCrawler
 				end
 			end
 
-			byebug
+			
 		return achievement_urls
 	end
 end
