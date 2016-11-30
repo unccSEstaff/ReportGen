@@ -12,7 +12,7 @@ class GitimmersionController < ApplicationController
     	csv_array<< ['Name', 'NinerNet ID', 'GitHub Username', 'Number of Commits', 'Number of Branches', 'Score']
     client = Octokit::Client.new login: params[:username], password: params[:password]
 
-	Student.order(:name).all.each do |student|
+	Student.where("length(github_username) > 1").order(:name).all.each do |student|
 		score=0
 		
 		if student.github_username != ""
